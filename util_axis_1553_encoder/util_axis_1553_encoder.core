@@ -1,0 +1,25 @@
+CAPI=2:
+
+name: AFRL:protocol:util_axis_1553_encoder:1.0.0
+description: encode data into 1553 bus messages.
+
+filesets:
+  src:
+    files:
+      - src/util_axis_1553_encoder.v
+    file_type: verilogSource
+  
+  tb:
+    files:
+      - tb/tb_1553_enc.v
+    file_type: verilogSource
+    
+targets:
+  default:
+    filesets: [src]
+  
+  sim:
+    default_tool: icarus
+    filesets: [src, tb]
+    toplevel: tb_1553
+    

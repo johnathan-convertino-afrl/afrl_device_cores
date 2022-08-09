@@ -1,0 +1,28 @@
+CAPI=2:
+
+name: AFRL:protocol:util_axis_uart:1.0.0
+description: UART core with rx/tx only (no handshaking at the moment).
+
+filesets:
+  src:
+    files:
+      - src/util_axis_uart.v
+      - src/util_axis_uart_rx.v
+      - src/util_axis_uart_tx.v
+      - src/util_uart_baud_gen.v
+    file_type: verilogSource
+  
+  tb:
+    files:
+      - tb/tb_uart.v
+    file_type: verilogSource
+    
+targets:
+  default:
+    filesets: [src]
+  
+  sim:
+    default_tool: icarus
+    filesets: [src, tb]
+    toplevel: tb_uart
+    
