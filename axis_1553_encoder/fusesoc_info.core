@@ -1,17 +1,19 @@
 CAPI=2:
 
-name: AFRL:protocol:util_axis_1553_decoder:1.0.0
-description: Decode 1553 bus trafic into AXIS data.
+name: AFRL:device:axis_1553_encoder:1.0.0
+description: encode data into 1553 bus messages.
 
 filesets:
   src:
     files:
-      - src/util_axis_1553_decoder.v
+      - src/axis_1553_encoder.v
     file_type: verilogSource
+    depend:
+      - AFRL:utility:util_helper:1.0.0
   
   tb:
     files:
-      - tb/tb_1553_dec.v
+      - tb/tb_1553_enc.v
     file_type: verilogSource
     
 targets:

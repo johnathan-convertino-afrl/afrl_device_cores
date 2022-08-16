@@ -54,7 +54,7 @@ module tb_1553;
   integer delay_counter = DELAY_COUNT;
   
   //device under test
-  util_axis_1553_decoder #(
+  axis_1553_decoder #(
     .clock_speed(CLK_SPEED_HZ),
     .sample_rate(2000000)
   ) dut (

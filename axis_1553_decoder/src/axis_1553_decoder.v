@@ -1,6 +1,6 @@
 // ***************************************************************************
 // ***************************************************************************
-// @FILE    util_axis_1553_decoder.v
+// @FILE    axis_1553_decoder.v
 // @AUTHOR  JAY CONVERTINO
 // @DATE    2021.05.24
 // @BRIEF   AXIS MIL-STD-1553 DECODER
@@ -50,6 +50,8 @@
 // ***************************************************************************
 
 `timescale 1ns/100ps
+
+`include util_helper_math.vh
 
 //mil-std-1553 decoder capable of any clock rate at or above 2 MHz
 module util_axis_1553_decoder #(
@@ -352,15 +354,4 @@ module util_axis_1553_decoder #(
       endcase
     end
   end
-  
-  //copied from the IEEE 1364-2001 Standard
-  function integer clogb2;
-    input [31:0] value;
-    begin
-        value = value - 1;
-        for (clogb2 = 0; value > 0; clogb2 = clogb2 + 1) begin
-            value = value >> 1;
-        end
-    end
-  endfunction
 endmodule

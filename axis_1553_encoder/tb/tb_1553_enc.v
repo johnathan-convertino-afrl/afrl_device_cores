@@ -23,7 +23,7 @@ module tb_1553;
   localparam RST_PERIOD = 100;
   
   //device under test
-  util_axis_1553_encoder #(
+  axis_1553_encoder #(
     .clock_speed(20000000)
   ) dut (
     .aclk(tb_data_clk),
