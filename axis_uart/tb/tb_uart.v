@@ -35,7 +35,7 @@ module tb_uart;
 //   integer data_counter;
   
   //device under test
-  util_axis_uart #(
+  axis_uart #(
     .baud_clock_speed(CLK_SPEED_HZ),
     .baud_rate(4000000),
     .parity_ena(0),

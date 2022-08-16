@@ -33,7 +33,7 @@ module tb_uart_rx;
   integer baud_counter;
   
   //device under test
-  util_axis_uart_rx #(
+  axis_uart_rx #(
     .parity_ena(1),
     .parity_type(1),
     .stop_bits(1),

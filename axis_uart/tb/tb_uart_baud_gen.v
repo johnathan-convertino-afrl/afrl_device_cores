@@ -20,7 +20,7 @@ module tb_uart_baud;
   
   
   //device under test
-  util_uart_baud_gen #(
+  uart_baud_gen #(
     .baud_clock_speed(CLK_SPEED_HZ),
     .baud_rate(912600)
   ) dut (

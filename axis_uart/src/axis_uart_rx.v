@@ -1,6 +1,6 @@
 // ***************************************************************************
 // ***************************************************************************
-// @FILE    util_axis_uart_rx.v
+// @FILE    axis_uart_rx.v
 // @AUTHOR  JAY CONVERTINO
 // @DATE    2021.06.24
 // @BRIEF   AXIS UART RX CORE
@@ -30,8 +30,10 @@
 
 `timescale 1ns/100ps
 
+`include util_helper_math.vh
+
 //uart
-module util_axis_uart_rx #(
+module axis_uart_rx #(
     parameter parity_ena  = 0,
     parameter parity_type = 0,
     parameter stop_bits   = 1,
@@ -266,15 +268,4 @@ module util_axis_uart_rx #(
         endcase
     end
   end
-  
-  //copied from the IEEE 1364-2001 Standard
-  function integer clogb2;
-    input [31:0] value;
-    begin
-        value = value - 1;
-        for (clogb2 = 0; value > 0; clogb2 = clogb2 + 1) begin
-            value = value >> 1;
-        end
-    end
-  endfunction
 endmodule

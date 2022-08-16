@@ -1,6 +1,6 @@
 // ***************************************************************************
 // ***************************************************************************
-// @FILE    util_axis_uart.v
+// @FILE    axis_uart.v
 // @AUTHOR  JAY CONVERTINO
 // @DATE    2021.06.24
 // @BRIEF   AXIS UART
@@ -33,7 +33,7 @@
 `timescale 1ns/100ps
 
 //UART
-module util_axis_uart #(
+module axis_uart #(
     parameter baud_clock_speed  = 2000000,
     parameter baud_rate   = 2000000,
     parameter parity_ena  = 0,
@@ -73,7 +73,7 @@ module util_axis_uart #(
   assign rts = 1'b1;
   
   //baud enable generator for tx, enable blocks when data i/o is needed at set rate.
-  util_uart_baud_gen #(
+  uart_baud_gen #(
     .baud_clock_speed(baud_clock_speed),
     .baud_rate(baud_rate),
     .delay(tx_baud_delay)
@@ -84,7 +84,7 @@ module util_axis_uart #(
     .uart_ena(uart_ena_tx)
   );
   
-  util_uart_baud_gen #(
+  uart_baud_gen #(
     .baud_clock_speed(baud_clock_speed),
     .baud_rate(baud_rate),
     .delay(rx_baud_delay)
@@ -95,7 +95,7 @@ module util_axis_uart #(
     .uart_ena(uart_ena_rx)
   );
   
-  util_axis_uart_tx #(
+  axis_uart_tx #(
     .parity_ena(parity_ena),
     .parity_type(parity_type),
     .stop_bits(stop_bits),
@@ -116,7 +116,7 @@ module util_axis_uart #(
     .txd(tx)
   );
   
-  util_axis_uart_rx #(
+  axis_uart_rx #(
     .parity_ena(parity_ena),
     .parity_type(parity_type),
     .stop_bits(stop_bits),

@@ -26,7 +26,7 @@ module tb_uart_tx;
   integer counter;
   
   //UART
-  util_axis_uart_tx #(
+  axis_uart_tx #(
       .parity_ena(1),
       .parity_type(1),
       .stop_bits(1),

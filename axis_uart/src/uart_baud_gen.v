@@ -1,6 +1,6 @@
 // ***************************************************************************
 // ***************************************************************************
-// @FILE    util_uart_baud_gen.v
+// @FILE    uart_baud_gen.v
 // @AUTHOR  JAY CONVERTINO
 // @DATE    2021.06.24
 // @BRIEF   UART BAUD RATE GENERATOR
@@ -31,8 +31,10 @@
 
 `timescale 1ns/100ps
 
+`include util_helper_math.vh
+
 //UART
-module util_uart_baud_gen #(
+module uart_baud_gen #(
     parameter baud_clock_speed = 2000000,
     parameter baud_rate   = 115200,
     parameter delay       = 0
@@ -42,7 +44,7 @@ module util_uart_baud_gen #(
     input   uart_clk,
     input   uart_rstn,
     input   uart_hold,
-    output uart_ena
+    output  uart_ena
   );
   
   reg [clogb2(baud_clock_speed):0] counter;
@@ -84,15 +86,4 @@ module util_uart_baud_gen #(
       assign uart_ena = r_uart_ena;
     end
   endgenerate
- 
-  //copied from the IEEE 1364-2001 Standard
-  function integer clogb2;
-    input [31:0] value;
-    begin
-        value = value - 1;
-        for (clogb2 = 0; value > 0; clogb2 = clogb2 + 1) begin
-            value = value >> 1;
-        end
-    end
-  endfunction
 endmodule
