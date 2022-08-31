@@ -51,10 +51,10 @@
 
 `timescale 1ns/100ps
 
-`include util_helper_math.vh
+`include "util_helper_math.vh"
 
 //mil-std-1553 decoder capable of any clock rate at or above 2 MHz
-module util_axis_1553_decoder #(
+module axis_1553_decoder #(
     parameter clock_speed = 20000000,
     parameter sample_rate = 2000000,
     parameter bit_slice_offset = 0,
